@@ -91,14 +91,14 @@ const SendForm = ({ availableAmount }: Props) => {
   };
 
   const confirmButtonDisabled = useMemo(() => {
-    if (warningMessageAmount) {
+    if (warningMessageAmount || warningMessageAddress) {
       // Check warnings
       return true;
     }
 
     // Check inputs
     return !parsedAmount || !insertedAddress;
-  }, [parsedAmount, insertedAddress, warningMessageAmount]);
+  }, [parsedAmount, insertedAddress, warningMessageAmount, warningMessageAddress]);
 
   return (
     <div>

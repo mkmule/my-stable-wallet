@@ -31,7 +31,7 @@ const ManageFunds = ({ availableAmount }: Props) => {
   return (
     <div className="">
       <div>
-        <Tabs tabs={tabs} active={activeTab} handleTabChange={setActiveTab} fullWidth />
+        <Tabs tabs={tabs} active={activeTab} handleTabChange={setActiveTab} />
       </div>
       <div className="bg-gray-100 rounded-b-lg p-4">
         {activeTab.id === 'send-tab' && <SendForm availableAmount={availableAmount} />}

@@ -23,7 +23,7 @@ The main goal of my implementation is to demonstrate:
 - Copy receive address to clipboard
 
 With assumption that most difficult logic is around currency input validation I levereged usage of parsing function that
-considers grouping separator and decimal cases precision. However for real case I would look to implement much complex
+considers grouping separator and decimal cases precision. However, for real case I would look to implement much complex
 logic for Currency input which would format user input on blur accordingly to currency precision.
 
 You can check a similar example implemented in React Native
