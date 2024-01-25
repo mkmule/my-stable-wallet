@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { formatCurrencyNumber, parseFormattedNumber } from '@/utils/formatting';
 import { CURRENCY_USD } from '@/models/currency';
 
+const ADDRESS_LENGTH = 22;
 const referenceCurrency = CURRENCY_USD;
 const exchangeRateStub = 0.5;
 const transactionFee = 0.03;
@@ -28,10 +29,12 @@ const SendForm = ({ availableAmount }: Props) => {
   const [insertedAmount, setInsertedAmount] = useState('');
   const [insertedAddress, setInsertedAddress] = useState('');
 
-  const [warningMessage, setWarningMessage] = useState('');
   const [parsedAmount, setParsedAmount] = useState(0);
   const [feeAmount, setFeeAmount] = useState(0);
   const [expectedSendAmount, setExpectedSendAmount] = useState(0);
+
+  const [warningMessageAmount, setWarningMessageAmount] = useState('');
+  const [warningMessageAddress, setWarningMessageAddress] = useState('');
 
   const [summaryListSub, setSummaryListSub] = useState(summaryListSubTemplate);
   const [summaryListTotal, setSummaryListTotal] = useState(summaryListTotalTemplate);
@@ -47,9 +50,9 @@ const SendForm = ({ availableAmount }: Props) => {
         setParsedAmount(parsedAmount);
         setFeeAmount(calculatedFee);
         setExpectedSendAmount(parsedAmount - calculatedFee);
-        setWarningMessage('');
+        setWarningMessageAmount('');
       } else {
-        setWarningMessage('Please set lower then your balance');
+        setWarningMessageAmount('Please set a valid amount, lower then your balance');
       }
 
       return;
@@ -73,19 +76,29 @@ const SendForm = ({ availableAmount }: Props) => {
     setSummaryListTotal(newSummaryListTotal);
   }, [availableAmount, parsedAmount, feeAmount, expectedSendAmount]);
 
+  useEffect(() => {
+    // Possible to write using useMemo also which will avoid usage of state
+
+    if (insertedAddress.length != ADDRESS_LENGTH) {
+      setWarningMessageAddress(`Please insert a valid address, ${ADDRESS_LENGTH} characters`);
+    } else {
+      setWarningMessageAddress('');
+    }
+  }, [insertedAddress]);
+
   const handleConfirmButtonClick = () => {
 
   };
 
   const confirmButtonDisabled = useMemo(() => {
-    if (warningMessage) {
+    if (warningMessageAmount) {
       // Check warnings
       return true;
     }
 
     // Check inputs
     return !parsedAmount || !insertedAddress;
-  }, [parsedAmount, insertedAddress, warningMessage]);
+  }, [parsedAmount, insertedAddress, warningMessageAmount]);
 
   return (
     <div>
@@ -100,7 +113,7 @@ const SendForm = ({ availableAmount }: Props) => {
           value={insertedAmount}
           handleChange={setInsertedAmount}
         />
-        {warningMessage && <div className="text-xs text-red-500 mt-0.5 ml-3">{warningMessage}</div>}
+        {warningMessageAmount && <div className="text-xs text-red-500 mt-0.5 ml-3">{warningMessageAmount}</div>}
       </div>
       <div className="mt-2">
         <Input
@@ -110,6 +123,7 @@ const SendForm = ({ availableAmount }: Props) => {
           value={insertedAddress}
           handleChange={setInsertedAddress}
         />
+        {warningMessageAddress && <div className="text-xs text-red-500 mt-0.5 ml-3">{warningMessageAddress}</div>}
       </div>
       <div className="mt-2">
         <h4 className="text-sm font-medium text-gray-900">Summary</h4>
