@@ -1,5 +1,10 @@
 import { Currency } from '@/models/currency';
 
+export interface Wallet {
+  id: string;
+  address: string;
+}
+
 export interface Amount {
   currency: Currency;
   value: number;

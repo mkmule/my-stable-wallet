@@ -1,5 +1,5 @@
 import MyBalance from '@/components/MyBalance';
-import SendForm from '@/components/SendForm';
+import ManageFunds from '@/components/ManageFunds';
 import MyTransactions from '@/components/MyTransactions';
 import { CURRENCY_MSC } from '@/models/currency';
 import { Amount, Transaction, TransactionType } from '@/models/transaction';
@@ -78,8 +78,9 @@ const DashboardPage = async () => {
             <h4 className="text-xl border-gray-200 border-b mb-2">Available balance</h4>
             <MyBalance availableAmount={availableAmount} />
           </div>
-          <div className="bg-amber-300">
-            <SendForm />
+          <div className="mt-4">
+            <h4 className="text-xl border-gray-200 border-b mb-2">Manage funds</h4>
+            <ManageFunds availableAmount={availableAmount}/>
           </div>
         </div>
         <div className="col-span-9">

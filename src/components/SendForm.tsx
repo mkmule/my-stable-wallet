@@ -1,7 +1,14 @@
-const SendForm = () => {
+'use client';
+import { Amount } from '@/models/transaction';
+
+interface Props {
+  availableAmount: Amount;
+}
+
+const SendForm = ({ availableAmount }: Props) => {
   return (
     <div>
-      This is SendForm
+      this is send form
     </div>
   );
 };
