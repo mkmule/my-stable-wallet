@@ -2,7 +2,7 @@
 
 import Tabs from '@/components/Tabs';
 import { useState } from 'react';
-import SendForm from '@/components/SendForm';
+import SendForm from '@/components/SendForm/SendForm';
 import { Amount } from '@/models/transaction';
 import ReceiveForm from '@/components/ReceiveForm';
 
