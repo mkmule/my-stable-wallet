@@ -2,7 +2,7 @@ import { Currency } from '@/models/currency';
 
 export interface Amount {
   currency: Currency;
-  amount: number;
+  value: number;
 }
 
 export enum TransactionType {
