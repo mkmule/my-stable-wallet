@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 };
 
 const links = [
-  { href: '/', label: 'Dashboard' },
+  { href: '/', label: 'Home' },
+  { href: '/dashboard', label: 'Dashboard' },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
