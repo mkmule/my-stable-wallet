@@ -6,19 +6,16 @@ interface Tab {
 }
 
 interface Props {
-  fullWidth?: boolean;
   tabs: Tab[];
   active?: Tab;
   handleTabChange: (tab: Tab) => void;
 }
 
-const Tabs = ({ tabs, active, handleTabChange, fullWidth }: Props) => {
+const Tabs = ({ tabs, active, handleTabChange }: Props) => {
 
   return (
     <div>
-      <ul
-        className={`flex flex-wrap text-sm font-medium text-center text-gray-500 ${fullWidth ? 'w-full' : ''}`}
-      >
+      <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500">
         {tabs.map(tab => (
           <li
             key={tab.id}
