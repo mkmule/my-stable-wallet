@@ -79,7 +79,7 @@ const SendForm = ({ availableAmount }: Props) => {
   useEffect(() => {
     // Possible to write using useMemo also which will avoid usage of state
 
-    if (insertedAddress.length != ADDRESS_LENGTH) {
+    if (insertedAddress.length && insertedAddress.length != ADDRESS_LENGTH) {
       setWarningMessageAddress(`Please insert a valid address, ${ADDRESS_LENGTH} characters`);
     } else {
       setWarningMessageAddress('');

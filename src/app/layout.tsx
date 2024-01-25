@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
     <body className={`${inter.className} min-h-screen flex flex-col`}>
-    <header className="py-8 px-16 border-b border-black">
+    <header className="py-4 px-8 lg:py-8 lg:px-16 border-b border-black">
       <nav>
         <ul className="flex justify-center items-center">
           {links.map(({ label, href }) => (
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {children}
     </main>
     <footer className="py-8 px-16 border-t border-black">
-      <p>Lorem ipsum copyrights 2024</p>
+      <p>Lorem ipsum Copyright 2024</p>
     </footer>
     </body>
     </html>
