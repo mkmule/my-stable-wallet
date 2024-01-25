@@ -23,7 +23,7 @@ const DisplayAmount = ({ amount, referenceCurrency }: Props) => {
   return (
     <div className="whitespace-nowrap text-right">
       <div className="text-m">{amount.currency.code} {formattedValue}</div>
-      <div className="text-sm">{referenceCurrency.code} {formattedReferenceValue}</div>
+      <div className="text-sm opacity-70">{referenceCurrency.code} {formattedReferenceValue}</div>
     </div>
   );
 };

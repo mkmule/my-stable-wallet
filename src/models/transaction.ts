@@ -15,7 +15,7 @@ export enum TransactionType {
 export interface Transaction {
   amount: Amount;
   date: string; // TODO: user Moment
-  fromAddress: string;
+  fee: Amount;
   id: string;
   toAddress: string;
   type: TransactionType,

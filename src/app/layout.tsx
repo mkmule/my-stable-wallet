@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 const links = [
   { href: '/', label: 'Home' },
   { href: '/dashboard', label: 'Dashboard' },
+  { href: '/my-transactions', label: 'My Transactions' },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ul>
       </nav>
     </header>
-    <main className="flex-grow">
+    <main className="flex-grow container mx-auto">
       {children}
     </main>
     <footer className="py-8 px-16 border-t border-black">
