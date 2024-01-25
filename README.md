@@ -19,7 +19,7 @@ The main goal of my implementation is to demonstrate:
 - Validate input number
 - Validate address length
 - Present intermediate (fee) calculation
-- Present transactions of different types reflected on UI
+- Present transactions of different types reflected on UI ()
 - Copy receive address to clipboard
 
 With assumption that most difficult logic is around currency input validation I levereged usage of parsing function that
@@ -46,7 +46,8 @@ potentially result into creation of separate components by platform to avoid com
 
 ### Preview
 
-Screenshots here.
+![Main screen](https://github.com/mkmule/my-stable-wallet/blob/main/demo/deskop.png?raw=true)
+![Main screen](https://github.com/mkmule/my-stable-wallet/blob/main/demo/mobile.png?raw=true)
 
 ## Setup & Run
 
