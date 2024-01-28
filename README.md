@@ -18,8 +18,8 @@ The main goal of my implementation is to demonstrate:
 
 - Validate input number
 - Validate address length
-- Present intermediate (fee) calculation
-- Present transactions of different types reflected on UI ()
+- Show intermediate (fee) calculation
+- Show transactions of different types reflected on UI ()
 - Copy receive address to clipboard
 
 With assumption that most difficult logic is around currency input validation I levereged usage of parsing function that
